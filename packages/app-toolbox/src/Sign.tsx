@@ -43,8 +43,7 @@ function Sign ({ className, t }: Props): React.ReactElement<Props> {
     const isExternal = currentPair?.meta.isExternal || false;
     const isHardware = currentPair?.meta.isHardware || false;
     const isInjected = currentPair?.meta.isInjected || false;
-    const isUsable = !(isExternal || isHardware || isInjected);
-
+    const isUsable = !(isExternal || isHardware);
     setAccountState({
       isExternal,
       isHardware,
@@ -172,7 +171,7 @@ function Sign ({ className, t }: Props): React.ReactElement<Props> {
             </div>
           )}
         </div>
-        <div
+        {/* <div
           className='unlock-overlay'
           hidden={isUsable}
         >
@@ -183,7 +182,7 @@ function Sign ({ className, t }: Props): React.ReactElement<Props> {
                 : t('This external account cannot be used to sign data. Only Limited support is currently available for signing from any non-internal accounts.')}
             </div>
           </div>
-        </div>
+        </div> */}
         {isUnlockVisible && (
           <Unlock
             onClose={_toggleUnlock}
